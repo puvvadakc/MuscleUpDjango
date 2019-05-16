@@ -47,6 +47,28 @@
 
 ### /auth/register
 
+- POST : This creates a brand new user
+
+   - Sample input:<br />
+   {<br />
+     "name": "regal",<br />
+     "street_number": 123, <br />
+     "street_name": "University way", <br />
+     "city": "Seattle", <br />
+     "state": "WA",<br />
+     "post_code": "98105"<br />
+   }<br />
+   - Sample output:<br />
+   {<br />
+     "id": 2, <br />
+     "name": "regal",<br />
+     "street_number": 123, <br />
+     "street_name": "University way", <br />
+     "city": "Seattle", <br />
+     "state": "WA",<br />
+     "post_code": "98105"<br />
+   }
+
 ### /auth/signin
 
 ### /auth/signout
@@ -57,6 +79,6 @@
 
 ### /programs
 
-### /programs/<id>
+### /programs/(id)
 
 
