@@ -43,6 +43,20 @@
 - Ctrl + C if you want to terminate the server
 
 
-## Routes with corrusponding Methods and sample input/output JSONs
+## Routes with corresponding Methods and sample input/output JSONs
+
+### /auth/register
+
+### /auth/signin
+
+### /auth/signout
+
+### /auth/update
+
+### /auth/delete
+
+### /programs
+
+### /programs/<id>
 
 
