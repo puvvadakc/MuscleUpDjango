@@ -45,40 +45,114 @@
 
 ## Routes with corresponding Methods and sample input/output JSONs
 
+**An admin account is already made so we can use it for testing**
+
+**Username: admin**
+
+**Password: admin**
+
 ### /auth/register
 
-- POST : This creates a brand new user
+- POST : This creates a brand new user (ALL JSON PARAMETERS MUST BE INCLUDED)
 
    - Sample input:<br />
    {<br />
-     "name": "regal",<br />
-     "street_number": 123, <br />
-     "street_name": "University way", <br />
-     "city": "Seattle", <br />
-     "state": "WA",<br />
-     "post_code": "98105"<br />
+     "username": "kimboslice123",<br />
+     "password": "password123", <br />
+     "passwordconf": "password123", <br />
+     "email": "kimbo@email.com", <br />
+     "first_name": "Kimbo",<br />
+     "last_name": "Slice",<br />
+     "gender": "male", (Can be only 'male' or 'female')<br />
+     "dob": "1996-01-01", (YYYY-MM-DD)<br />
+     "height": 90 (make sure to not pass in string)<br />
    }<br />
-   - Sample output:<br />
-   {<br />
-     "id": 2, <br />
-     "name": "regal",<br />
-     "street_number": 123, <br />
-     "street_name": "University way", <br />
-     "city": "Seattle", <br />
-     "state": "WA",<br />
-     "post_code": "98105"<br />
-   }
+
 
 ### /auth/signin
 
+- POST: Signs in user (ALL JSON PARAMETERS MUST BE INCLUDED)
+
+   - Sample input:<br />
+   {<br />
+     "username": "kimboslice123",<br />
+     "password": "password123" <br />
+   }<br />
+
 ### /auth/signout
+
+- GET: Signs out user (User must be signed in, in order to be able to sign out)
 
 ### /auth/update
 
+- PATCH: Update user information (Only parameters for information that is being updated should be included in JSON)
+
+   - Sample input:<br />
+   {<br />
+     "username": "kimboslice123",<br />
+     "password": "password123", <br />
+     "passwordconf": "password123", <br />
+     "email": "kimbo@email.com", <br />
+   }<br />
+
+
 ### /auth/delete
+
+- DELETE: Deletes the user that is currently signed in
 
 ### /programs
 
+- GET: Gets a list of all the programs' information as JSON
+
+   - Sample output:<br />
+   [<br />
+     {<br />
+       "id": "1",<br />
+       "name": "Sample Program", <br />
+       "description": "Sample Program for Testing", <br />
+       "fitness_goal": "CA", <br />
+       "author": "1",<br />
+       "date": "2019-04-18T18:53:12Z"<br />
+     },<br />
+     {<br />
+       "id": "2",<br />
+       "name": "Sample Program 2", <br />
+       "description": "Sample Program 2 for Testing", <br />
+       "fitness_goal": "WL", <br />
+       "author": "1",<br />
+       "date": "2019-04-18T18:53:12Z"<br />
+     }<br />
+   ]<br />
+
+
+- POST: Create new program and adds to database
+
+
+
 ### /programs/(id)
+
+- GET: Gets the specific program based off of the id provided in the route of the url
+
+   - Sample output:<br />
+   {<br />
+     "id": "1",<br />
+     "name": "Sample Program", <br />
+     "description": "Sample Program for Testing", <br />
+     "fitness_goal": "CA", <br />
+     "author": "kimboslice123",<br />
+     "date": "2019-04-18T18:53:12Z"<br />
+   }<br />
+
+- PATCH: Update program specified in the route of url as id (Only parameters that are being updated need to be specified)
+
+
+   - Sample input:<br />
+   {<br />
+     "name": "Sample Program for Pros", <br />
+     "description": "Sample Program Updated", <br />
+     "fitness_goal": "WL" <br />
+   }<br />
+
+- DELETE: deletes the specified program based off of the id provided in the route of the url
 
 
