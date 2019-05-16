@@ -92,7 +92,7 @@
      "username": "kimboslice123",<br />
      "password": "password123", <br />
      "passwordconf": "password123", <br />
-     "email": "kimbo@email.com", <br />
+     "email": "kimbo@email.com" <br />
    }<br />
 
 
@@ -125,9 +125,14 @@
    ]<br />
 
 
-- POST: Create new program and adds to database
+- POST: Create new program and adds to database (Musted be logged in to do so)
 
-
+   - Sample input:<br />
+   {<br />
+     "name": "Sample Program", <br />
+     "description": "Sample Program for Testing", <br />
+     "fitness_goal": "WL" (Must be BB, ST, CA, or WL)<br />
+   }<br />
 
 ### /programs/(id)
 
