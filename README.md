@@ -163,3 +163,39 @@
 - DELETE: deletes the specified program based off of the id provided in the route of the url
 
 
+### /progress
+
+
+### /progress/(program_id)
+
+
+### /recommended/(fitness_goal)
+
+fitness_goal passed in through the parameter should be a number between 1-4 (1 means bodybuilding, 2 means strength, 3 means cardio, 4 means weightloss)
+
+- GET: Gets the 5 best programs for the logged in user according to the specified fitness goal.
+
+   - Sample output:<br />
+   [<br />
+     {<br />
+       "id": "1",<br />
+       "name": "Sample Program", <br />
+       "description": "Sample Program for Testing", <br />
+       "fitness_goal": "CA", <br />
+       "author": "1",<br />
+       "date": "2019-04-18T18:53:12Z"<br />
+     },<br />
+     {<br />
+       "id": "2",<br />
+       "name": "Sample Program 2", <br />
+       "description": "Sample Program 2 for Testing", <br />
+       "fitness_goal": "WL", <br />
+       "author": "1",<br />
+       "date": "2019-04-18T18:53:12Z"<br />
+     }<br />
+     ... <br />
+   ]<br />
+
+
+
+
