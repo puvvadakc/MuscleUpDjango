@@ -145,7 +145,9 @@
      "description": "Sample Program for Testing", <br />
      "fitness_goal": "CA", <br />
      "author": "kimboslice123",<br />
-     "date": "2019-04-18T18:53:12Z"<br />
+     "date": "2019-04-18T18:53:12Z",<br />
+     "usage": "300", <br />
+     "progress": ["23", "26", "45", "60"] <br />
    }<br />
 
 - PATCH: Update program specified in the route of url as id (Only parameters that are being updated need to be specified)
