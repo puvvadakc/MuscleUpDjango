@@ -165,8 +165,87 @@
 
 ### /progress
 
+- GET: Returns a list of all the programs what the user has progress recorded for, both currently active programs and previous programs tha the user has used.
+
+- POST:
+   - Sample output:<br />
+   [<br />
+     {<br />
+       "id": "1",<br />
+       "name": "Sample Program", <br />
+       "description": "Sample Program for Testing", <br />
+       "fitness_goal": "CA", <br />
+       "author": "1",<br />
+       "date": "2019-04-18T18:53:12Z"<br />
+     },<br />
+     {<br />
+       "id": "2",<br />
+       "name": "Sample Program 2", <br />
+       "description": "Sample Program 2 for Testing", <br />
+       "fitness_goal": "WL", <br />
+       "author": "1",<br />
+       "date": "2019-04-18T18:53:12Z"<br />
+     }<br />
+     ... <br />
+   ]<br />
+
 
 ### /progress/(program_id)
+
+- GET: Gets all the user non null data previously added as progress of the specific program according to the parameter in the URL.
+     
+     - Sample output:<br />
+     [<br />
+       {<br />
+         "id": "1",<br />
+         "user": "2", <br />
+         "program": "3", <br />
+         "date": "2019-04-18T18:53:12Z", <br />
+         "height": "70",<br />
+         "gender": "1", (0 means male, 1 means female) <br />
+         "age": "20",<br />
+         "barbell_row": "120",<br />
+         "bench_press": "100",<br />
+         "dead_lift": "200",<br />
+         "overhead_press": "100",<br />
+         "squat": "200",<br />
+         "dips_count": "20",<br />
+         "pullups_count": "20",<br />
+         "pushups_count": "30",<br />
+         "mile_time_sec": "600",<br />
+         "heartrate_bpm": "70",<br />
+         "steps": "1000",<br />
+         "weight": "200",<br />
+         "bodyfat_perc": "0.16" <br />
+       }, <br />
+       {<br />
+         "id": "2",<br />
+         "user": "2", <br />
+         "program": "3", <br />
+         "date": "2019-04-18T18:53:12Z", <br />
+         "height": "70",<br />
+         "gender": "1", (0 means male, 1 means female) <br />
+         "age": "20",<br />
+         "barbell_row": "120",<br />
+         "bench_press": "100",<br />
+         "dead_lift": "200",<br />
+         "overhead_press": "100",<br />
+         "squat": "200",<br />
+         "dips_count": "20",<br />
+         "pullups_count": "20",<br />
+         "pushups_count": "30",<br />
+         "mile_time_sec": "600",<br />
+         "heartrate_bpm": "70",<br />
+         "steps": "1000",<br />
+         "weight": "200",<br />
+         "bodyfat_perc": "0.16" <br />
+       } <br />
+     ]<br />
+
+- POST: sample input is similar to sample output, except that user, program, date, height, gender, or age, should not be passed in, any of the other keys can be posted as an entry, any field not passed in will be held as a null value.
+
+- DELETE: Deletes all the progress of a specific program, for the specified logged in user.
+
 
 
 ### /recommended/(fitness_goal)
