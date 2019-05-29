@@ -166,8 +166,7 @@
 ### /progress
 
 - GET: Returns a list of all the programs what the user has progress recorded for, both currently active programs and previous programs tha the user has used.
-
-- POST:
+   
    - Sample output:<br />
    [<br />
      {<br />
@@ -189,6 +188,13 @@
      ... <br />
    ]<br />
 
+- POST: Takes in the id of the newly added program, and creates an initial progress value for the program.
+
+
+   - Sample input:<br />
+   {<br />
+     "program": 1 <br />
+   }<br />
 
 ### /progress/(program_id)
 
