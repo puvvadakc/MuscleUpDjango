@@ -116,6 +116,25 @@ def specificProgram(request, program_id):
                 'author': the_program.author.username, 
                 'date': the_program.date
                 }
+            the_program_data['usage'] = len(list(Progress.objects.filter(
+                program = program_id
+                ).values('user').distinct()))
+            
+            w1 = 0
+            w2 = 0
+            w3 = 0
+            w4 = 0
+            if(the_program.fitness_goal == "CA"):
+                cov = ['mile_time_sec']
+            elif(the_program.fitness_goal == "BB"):
+                cov = ['weight']
+            elif(the_program.fitness_goal == "ST"):
+                cov = ['bench_press', 'deadlift', 'squat']
+            else:
+                cov = ['weight']
+
+            p_val = [w1, w2, w3, w4]
+            the_program_data['progress'] = p_val
         except DatabaseError:
             return HttpResponse(DatabaseErrorMessage, status = 400)
         except Exception:
