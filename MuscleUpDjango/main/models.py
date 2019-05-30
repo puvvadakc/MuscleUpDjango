@@ -30,7 +30,7 @@ class Programs(models.Model):
         (WEIGHTLOSS, 'Weight Loss (Fat Reduction)')
     )
 
-    fitness_goal = models.CharField(max_length=1, choices=FITNESS_GOAL_TYPE, null = False)
+    fitness_goal = models.CharField(max_length=2, choices=FITNESS_GOAL_TYPE, null = False)
     author = models.ForeignKey(Users, on_delete = models.CASCADE)
     date = models.DateTimeField(auto_now_add= True)
 

@@ -31,7 +31,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
     '10.0.0.13',
-    '10.18.228.34' #special UW route goes here
+    '10.19.232.29' #special UW route goes here
 ]
 
 

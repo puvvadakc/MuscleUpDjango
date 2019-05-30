@@ -560,7 +560,24 @@ def recommendedPrograms(request, fitness_goal):
         return HttpResponse(AuthorizationError, status = 401)
 
     if request.method == "GET":
-        return HttpResponse(AuthorizationError, status = 401)
+        try:
+            if int(fitness_goal) == 1:
+                fit = 'BB'
+            elif int(fitness_goal) == 2:
+                fit = 'ST'
+            elif int(fitness_goal) == 3:
+                fit = 'CA'
+            else:
+                fit = 'WL'
+
+            program_list = list(Programs.objects.all().filter(fitness_goal = fit).values())
+        except DatabaseError:
+            return HttpResponse(DatabaseErrorMessage, status = 400)
+        except Exception:
+            return HttpResponse(ExceptionMessage, status = 400)
+        else:
+            # return all programs into the template
+            return JsonResponse(program_list, safe = False, content_type = 'application/json', status = 201)
     
     else:
         return HttpResponse(BadRequestMessage, status = 405)
