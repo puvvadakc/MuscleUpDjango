@@ -561,16 +561,17 @@ def recommendedPrograms(request, fitness_goal):
 
     if request.method == "GET":
         try:
-            if int(fitness_goal) == 1:
+            if fitness_goal == 1:
                 fit = 'BB'
-            elif int(fitness_goal) == 2:
+            elif fitness_goal == 2:
                 fit = 'ST'
-            elif int(fitness_goal) == 3:
+            elif fitness_goal == 3:
                 fit = 'CA'
             else:
                 fit = 'WL'
+            
 
-            program_list = list(Programs.objects.all().filter(fitness_goal = fit).values())
+            program_list = list(Programs.objects.all().values().filter(fitness_goal = fit))
         except DatabaseError:
             return HttpResponse(DatabaseErrorMessage, status = 400)
         except Exception:
