@@ -8,6 +8,7 @@ from django.views.decorators.csrf import csrf_exempt
 import datetime
 from datetime import date
 from django.forms.models import model_to_dict
+import random
 
 # Create your views here.
 
@@ -126,12 +127,28 @@ def specificProgram(request, program_id):
             w4 = 0
             if(the_program.fitness_goal == "CA"):
                 cov = ['mile_time_sec']
+                w1 = random.randint(70,98)
+                w2 = random.randint(60,90)
+                w3 = random.randint(55,85)
+                w4 = random.randint(50,80)
             elif(the_program.fitness_goal == "BB"):
                 cov = ['weight']
+                w1 = random.randint(1,3)
+                w2 = random.randint(3,5)
+                w3 = random.randint(4,8)
+                w4 = random.randint(7,10)
             elif(the_program.fitness_goal == "ST"):
                 cov = ['bench_press', 'deadlift', 'squat']
+                w1 = random.randint(300,500)
+                w2 = random.randint(370,600)
+                w3 = random.randint(400,700)
+                w4 = random.randint(450,800)
             else:
                 cov = ['weight']
+                w1 = random.randint(1,10)
+                w2 = random.randint(7,15)
+                w3 = random.randint(12,20)
+                w4 = random.randint(17,27)
 
             p_val = [w1, w2, w3, w4]
             the_program_data['progress'] = p_val
